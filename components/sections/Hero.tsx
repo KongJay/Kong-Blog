@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { FadeIn } from "@/components/ui/FadeIn";
+import Lanyard from "@/components/ui/Lanyard";
 
 export const Hero = () => {
   return (
@@ -29,53 +30,13 @@ export const Hero = () => {
         </div>
 
         {/* Right Column: Visual Element */}
-        <FadeIn delay={0.4} className="relative h-[60vh] hidden lg:block">
-            {/* 
-              Option 1: Abstract 3D Shapes (CSS Only representation) 
-              Use a real 3D library (Three.js/Spline) for better effect in production
-            */}
-            <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div 
-                    animate={{ 
-                        rotate: [0, 360],
-                        scale: [1, 1.1, 1]
-                    }}
-                    transition={{ 
-                        duration: 20, 
-                        repeat: Infinity, 
-                        ease: "linear" 
-                    }}
-                    className="w-[400px] h-[400px] border-[1px] border-neutral-200 rounded-full absolute"
-                />
-                <motion.div 
-                    animate={{ 
-                        rotate: [360, 0],
-                        scale: [1, 1.2, 1]
-                    }}
-                    transition={{ 
-                        duration: 25, 
-                        repeat: Infinity, 
-                        ease: "linear" 
-                    }}
-                    className="w-[300px] h-[300px] border-[1px] border-neutral-300 rounded-full absolute rotate-45"
-                />
-                 <motion.div 
-                    animate={{ 
-                       y: [0, -20, 0]
-                    }}
-                    transition={{ 
-                        duration: 5, 
-                        repeat: Infinity, 
-                        ease: "easeInOut" 
-                    }}
-                    className="relative z-10 w-64 h-80 bg-neutral-900 overflow-hidden rounded-t-full"
-                >
-                    {/* Placeholder for Portrait Image */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-neutral-800 to-black opacity-80"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
-                        <span className="text-white/20 font-serif text-6xl italic">You</span>
-                    </div>
-                </motion.div>
+        <FadeIn delay={0.4} className="relative h-screen hidden lg:block -mt-20">
+            <div className="absolute inset-0 flex items-start justify-center">
+               <Lanyard 
+                  position={[0, 0, 15]} 
+                  gravity={[0, -40, 0]} 
+                  className="w-full h-full -ml-40"
+               />
             </div>
         </FadeIn>
       </div>
